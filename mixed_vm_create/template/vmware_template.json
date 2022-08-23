@@ -1,0 +1,83 @@
+{
+    "location": {
+        "region": "$region",
+        "az": "$available_zone",
+        "vendorId": $vendor_id,
+        "poolGroupId": $poolGroup_id,
+        "businessId": "",
+        "projectId": $vm_project_id,
+        "creatorId": "",
+        "ownerId": "",
+        "menderId": "",
+        "vendorType": "VMWARE",
+        "tenantId": $tenant_id
+    },
+    "emption": {
+        "duration": {
+            "mode": "Hour",
+            "amount": 1
+        },
+        "count": 1
+    },
+    "configs": {
+        "resourceLabel": [],
+        "diskCategoryId": $vm_os_disk_catalogId,
+        "osCategory": "$vm_os_category",
+        "osVersion": "$vm_os_version",
+        "addDiskList": [],
+        "diskType": "$vmware_disk_format",
+        "networkCardConfigs": [
+            {
+                "networkCardId": $os_type_version_card_id,
+                "ipPolicy": "$vmware_ipPolicy",
+                "ipPoolId": $vmware_pool_id,
+                "address": $vmware_ip_address,
+                "portGroupId": $portGroup_id,
+                "checkIpv6": false,
+                "ipv6PoolId": "",
+                "ipv6Policy": "Auto",
+                "ipv6Address": [],
+                "ippools": $pools_details,
+                "ipv6pools": []
+            }
+        ],
+        "isAddShterm": false,
+        "imageId": $vm_os_image_id,
+        "name": "$vm_name",
+        "vmHostName": "$vm_host_name",
+        "password": "$vm_default_password",
+        "categoryId": 1,
+        "disk": "$vm_os_disk_capacity",
+        "cpu": "$vm_cpu",
+        "memory": "$vm_mem"
+    },
+    "elements": [
+        {
+            "serviceCode": "vmware.standard.server",
+            "skuId": $vm_template_sku_id,
+            "categoryId": $vm_categoryId,
+            "category": null,
+            "specs": [
+                {
+                    "cpu": "$vm_cpu"
+                },
+                {
+                    "memory": "$vm_mem"
+                }
+            ]
+        },
+        {
+            "serviceCode": "vmware.storage.disk",
+            "skuId": $vm_os_disk_sku_id,
+            "categoryId": $vm_os_disk_catalogId,
+            "category": "SAS",
+            "specs": [
+                {
+                    "disk": "$vm_os_disk_capacity"
+                }
+            ]
+        }
+    ],
+    "sla": null,
+    "service": "vmware.standard.server"
+}

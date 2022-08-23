@@ -1,0 +1,97 @@
+{
+    "location": {
+        "region": "$region",
+        "az": "$available_zone",
+        "vendorId": $vendor_id,
+        "poolGroupId": $poolGroup_id,
+        "businessId": "",
+        "projectId": $vm_project_id,
+        "creatorId": "",
+        "ownerId": "",
+        "menderId": "",
+        "vendorType": "$vendorType",
+        "tenantId": $tenant_id
+    },
+    "emption": {
+        "duration": {
+            "mode": "Hour",
+            "amount": 1
+        },
+        "count": 1
+    },
+    "configs": {
+        "resourceLabel": [],
+        "diskCategoryId": $vm_disk_catalogId,
+        "osCategory": "$vm_os_category",
+        "osVersion": "$vm_os_version",
+        "imageId": $vm_os_image_id,
+        "networks": [
+            {
+                "networkId": $network_id,
+                "networkName": "$vm_network_name",
+                "addresses": [
+                    {
+                        "networkId": $network_id,
+                        "subnetId": $subnet_id,
+                        "subnetName": "$vm_subnet_name",
+                        "address": "$vm_fixed_ip"
+                    }
+                ]
+            }
+        ],
+        "skutId": 30,
+        "cpu": "$vm_cpu",
+        "memory": "$vm_mem",
+        "disk": "$vm_disk_capacity",
+        "name": "$vm_name",
+        "keypairName": "",
+        "login": "密码",
+        "groups": [
+            "$vm_security_group"
+        ],
+        "region": "",
+        "networkList": [
+            {
+                "id": $network_id,
+                "subnetId": $subnet_id,
+                "networkName": "$vm_network_name",
+                "subnetName": "$vm_subnet_name",
+                "ip": "",
+                "switch": false,
+                "detail": $network_list_detail
+            }
+        ],
+        "DhcpFlag": true,
+        "password": "$vm_default_password",
+        "categoryId": 2
+    },
+    "elements": [
+        {
+            "serviceCode": "openstack.standard.server",
+            "skuId": $vm_template_sku_id,
+            "categoryId": $vm_categoryId,
+            "category": null,
+            "specs": [
+                {
+                    "cpu": "$vm_cpu"
+                },
+                {
+                    "memory": "$vm_mem"
+                }
+            ]
+        },
+        {
+            "serviceCode": "openstack.standard.volume",
+            "skuId": $vm_disk_sku_id,
+            "categoryId": $vm_disk_categoryId,
+            "category": null,
+            "specs": [
+                {
+                    "disk": "$vm_disk_capacity"
+                }
+            ]
+        }
+    ],
+    "sla": null,
+    "service": "openstack.standard.server"
+}
